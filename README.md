@@ -85,8 +85,11 @@ to share anonymous usage data with Google (`uv run adk telemetry disable` change
    ```
 2. Open <http://127.0.0.1:8000> (use `127.0.0.1`, not `localhost`).
 
-Arabic replies look misaligned in ADK's web UI (it is left-to-right). Optional fix in your browser:
-[docs/assets/adk-web-rtl.user.css](docs/assets/adk-web-rtl.user.css).
+**Arabic in `adk web` (optional):** ADK's web UI is left-to-right, so Arabic replies look misaligned, and ADK has no
+option to change its style. The fix lives in your browser: install the [Stylus](https://github.com/openstyles/stylus)
+extension (Chrome, Edge, Firefox), create a new style, paste
+[docs/assets/adk-web-rtl.user.css](docs/assets/adk-web-rtl.user.css), and set "Applies to" as the comment at the top of
+that file says. It works for local `adk web` and for the Codespaces URL.
 
 ## Free, and on your machine
 
