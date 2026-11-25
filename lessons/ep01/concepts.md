@@ -1,94 +1,10 @@
-# Episode 1: Your first ADK agent with tools, on a free key
+# Episode 1 · Concepts and try it
 
-Masar session: Foundation + 1. Empowering AI Agents with Tools · Tag: `ep01-tools` · Video: coming soon
-
-Google's official codelabs for this session (Vertex AI + billing; this lesson does the same on a free key):
-[The Foundation](https://codelabs.developers.google.com/devsite/codelabs/build-agents-with-adk-foundation) ·
-[Empowering with Tools](https://codelabs.developers.google.com/devsite/codelabs/build-agents-with-adk-empowering-with-tools)
+[Episode 1](README.md) → **Concepts** → [Practice](practice.md)
 
 <div dir="rtl">
 
-## هدف الحلقة
-
-في الحلقة دي هنشغّل «رحّال» على مفتاح مجاني من Google AI Studio، ونشوف إزاي بيستخدم 3 أدوات بايثون بتشتغل
-على جهازك: تحويل العملات، والبحث عن فنادق، ومواعيد الصلاة. وهنشوف إزاي بيرفض الفتوى ويحوّلها لـ«نسك»، وإزاي
-نختبره بحالات اختبار مكتوبة.
-
-إحنا مش هنكتب كود في الحلقة دي: هنشغّل، ونجرّب، ونفهم الكود الموجود.
-
-**المفاهيم في الحلقة دي:** Agent · Tool · agent loop · Instruction · Callback · Golden case
-
-## اللي هتحتاجه
-
-- حساب على GitHub.
-- مفتاح Gemini API مجاني من مشروع في AI Studio **من غير فوترة**.
-
-**إزاي تجيب المفتاح المجاني:**
-
-1. افتح صفحة المشاريع في [Google AI Studio](https://aistudio.google.com/projects) وادخل بحساب جوجل بتاعك، ودوس
-   على **Create a new project**. سمّي المشروع أي اسم.
-
-   <img src="../docs/assets/ep01/aistudio-create-project.png" alt="AI Studio Projects page: Create a new project" width="560">
-
-2. من صفحة **API Keys** دوس **Create API key**: اكتب اسم للمفتاح، واختار المشروع الجديد، ودوس **Create key**.
-
-   <img src="../docs/assets/ep01/aistudio-create-key.png" alt="Create a new key: name, project, Create key" width="420">
-
-3. اتأكد إن خانة **Billing Tier** مكتوب فيها **Free tier**. متدوسش على **Set up billing**: ده اللي بيحوّل المشروع
-   لمدفوع. بعد كده انسخ المفتاح من زرار النسخ.
-
-   <img src="../docs/assets/ep01/aistudio-free-tier-copy-key.png" alt="API Keys list: Free tier and the Copy API key button" width="560">
-
-4. احفظ المفتاح في مكان آمن. متحطوش في الكود، ومتشاركوش مع حد، ومتنشروش في أي صورة.
-
-## التجهيز
-
-الأوامر واحدة في Codespaces وعلى جهازك، مع فرق واحد بس في أمر التشغيل.
-
-**في GitHub Codespaces:** افتح الـ codespace بـ **New with options** وحط المفتاح في خانة `GOOGLE_API_KEY`. بعد
-ما التجهيز يخلص، انسخ الأمرين دول بزرار النسخ وشغّلهم في الـ terminal:
-
-```bash
-uv run python scripts/check.py ep01
-uv run adk web --allow_origins http://localhost:8000
-```
-
-<img src="../docs/assets/ep01/setup-check-and-adk-web.png" alt="Copy the commands, run them, and check.py ends with the adk web command" width="640">
-
-بعد كده افتح تبويب **Ports**، وعند المنفذ 8000 دوس على أيقونة الكرة الأرضية (Open in Browser):
-
-<img src="../docs/assets/ep01/ports-open-in-browser.png" alt="Ports tab, port 8000, Open in Browser" width="640">
-
-**على جهازك:**
-
-```bash
-uv sync
-cp .env.example .env
-uv run python scripts/check.py ep01
-uv run adk web
-```
-
-وحط مفتاحك في ملف `.env` قبل أمر الفحص، وبعدين افتح العنوان ده في المتصفح:
-
-```text
-http://127.0.0.1:8000
-```
-
-</div>
-
-> [!WARNING]
-> <div dir="rtl">
->
-> في الـ codespace، الأمر `uv run adk web` لوحده بيفتح صفحة فاضية. تحويل المنافذ في GitHub بيبعت طلبات المتصفح
-> على إنها جاية من `http://localhost:8000`، وADK بيمنع أي مصدر (origin) مش قادر يتأكد منه، علشان يحميك من مواقع
-> ضارة. الخيار `--allow_origins http://localhost:8000` بيسمح بالمصدر ده بس.
->
-> </div>
-
-<div dir="rtl">
-
-أول مرة تشغّل `adk` هيسألك سؤال عن مشاركة بيانات الاستخدام (`Enable telemetry? [Y/n]`). لو دوست Enter من غير
-ما تكتب حاجة، ده معناه **موافقة**؛ اكتب حرف `n` لو مش عايز تشارك.
+قبل ما تبدأ، لازم يكون رحّال شغّال عندك: شوف [التجهيز](../setup.md).
 
 ## المفهوم 1: الوكيل (Agent)
 
@@ -124,7 +40,7 @@ http://127.0.0.1:8000
   بـ 3000 ريال سعودي. دوس على خطوة الاستدعاء علشان تشوف القيم اللي النموذج اختارها.
 - **للمزيد:** [ADK docs: Function tools](https://google.github.io/adk-docs/tools-custom/function-tools/)
 
-<img src="../docs/assets/ep01/events-currency-tool.png" alt="Events tab: convert_currency call, its result, and the reply" width="640">
+<img src="../../docs/assets/ep01/events-currency-tool.png" alt="Events tab: convert_currency call, its result, and the reply" width="640">
 
 ## المفهوم 3: دورة الوكيل (agent loop)
 
@@ -206,7 +122,7 @@ flowchart LR
 - **شوف بنفسك:** من الشريط الشمال افتح ملخص الاستهلاك (Usage Summary): مجموع التوكنز صفر، لأن النموذج ماتسألش
   أصلًا. وفي الـ terminal مفيش ولا سطر `Sending out request`.
 
-<img src="../docs/assets/ep01/fiqh-filter-zero-tokens.png" alt="The fiqh question gets the Nusuk referral; Usage Summary shows 0 tokens" width="640">
+<img src="../../docs/assets/ep01/fiqh-filter-zero-tokens.png" alt="The fiqh question gets the Nusuk referral; Usage Summary shows 0 tokens" width="640">
 
 السؤال التاني عملي، ولازم يتجاوب، مش يترفض:
 
@@ -270,154 +186,6 @@ uv run pytest -m live -v
   الحكم لـ«نسك»، لكن أحيانًا بيقول حكم جوه الإجابة.
 - **معلومات مش جاية من الأدوات:** زي أسعار تأجير الكراسي المتحركة. دي من معرفة النموذج العامة، فاعتبرها تقريبية
   واتأكد منها.
-
-## طبّق بنفسك
-
-اختار المستوى اللي يناسبك. المستوى الأول كفاية علشان تفهم الحلقة، والباقي لو حابب تتعمق.
-
-### المستوى 1: شغّل وجرّب (من غير كود)
-
-1. **غيّر النموذج:** في ملف `.env` خلّي قيمة `RAHHAL_MODEL` هي `gemini-3.1-flash-lite`، وبعدين شغّل الاختبارات
-   الحية تاني. أنهي حالات نتيجتها اتغيرت؟
-
-   ```bash
-   uv run pytest -m live -v
-   ```
-2. **مين اللي رد؟** اكتب سؤال شرعي بكلامك أنت، وبص على ملخص الاستهلاك: لو التوكنز صفر يبقى الفلتر هو اللي رد،
-   ولو فيه توكنز يبقى النموذج هو اللي رد وهو ماشي على التعليمات.
-
-### المستوى 2: تمارين موجّهة (تعديل بسيط)
-
-**تمرين 1: اكتب حالة اختبار ذهبية بنفسك.** زوّد الحالة دي في آخر ملف `evals/golden_cases.yaml`، أو غيّر الرسالة
-لسؤال بلهجتك، وبعدين شغّلها لوحدها:
-
-```yaml
-- id: my_prayer_times_madinah
-  input: "مواعيد الصلاة في المدينة بكرة إيه؟"
-  expected_tools: [get_prayer_times]
-  expected_args: {city: madinah, days_ahead: 1}
-```
-
-```bash
-uv run pytest -m live -v -k my_prayer_times_madinah
-```
-
-**تمرين 2: اعمل أداة بنفسك.** عايزين أداة تحسب وقت المشي من الفندق للحرم. اكتب دالة اسمها `walking_minutes` تاخد
-المسافة بالمتر، وهل المسافر بيمشي ببطء. افتكر المفهوم 2: الوصف (docstring) هو اللي النموذج بيقراه. ضيفها في
-ملف `rahhal/tools/travel.py`، وصدّرها من `rahhal/tools/__init__.py`، وحطها في قايمة الأدوات في `rahhal/agent.py`.
-وبعدين أعد تشغيل `adk web` وجرّب:
-
-```text
-الفندق على بعد 600 متر من الحرم، والدتي هتاخد قد إيه مشي؟
-```
-
-<details>
-<summary>الحل</summary>
-
-```python
-def walking_minutes(distance_m: int, slow: bool = False) -> dict:
-    """Estimate how many minutes it takes to walk from a hotel to the Haram.
-
-    Args:
-        distance_m: Walking distance in meters, e.g. 600.
-        slow: True for an elderly traveller or someone who walks slowly.
-
-    Returns:
-        A dict with status and the estimated walking time in whole minutes.
-    """
-    meters_per_minute = 40 if slow else 70
-    return {"status": "success", "minutes": -(-distance_m // meters_per_minute)}
-```
-
-وفي `rahhal/agent.py` الأداة الجديدة بتنضم للقايمة:
-
-```python
-tools=[convert_currency, search_hotels, get_prayer_times, walking_minutes],
-```
-
-لما جربناه، النموذج استدعى الأداة بمسافة 600 ومشي بطيء، ورد بحوالي 15 دقيقة.
-
-</details>
-
-**تمرين 3: زوّد قاعدة في التعليمات.** في `INSTRUCTION` زوّد قاعدة عاشرة، مثلًا: «لو المستخدم قال إنه مستعجل، رد في
-سطرين بس». جرّب رسالة فيها «أنا مستعجل»، وشوف النموذج التزم ولا لأ. وافتكر: النموذج الصغير بيلتزم أغلب الوقت، مش
-كل الوقت.
-
-### المستوى 3: مشروعك الخاص
-
-اعمل أداة من عندك تفيد مسافر: مثلًا مواعيد قطار وهمية بين مدينتين، أو قايمة حاجات للشنطة حسب عدد الأيام، أو تحويل
-لعملة بلدك. اكتب لها حالة اختبار ذهبية واحدة على الأقل، وخد صورة من تبويب Events وهي شغالة.
-
-**شاركها:** في [Show and tell](https://github.com/aymanaboghonim/rahhal-adk/discussions/categories/show-and-tell) هنا على GitHub، أو في قناة مسار على
-Discord، أو على السوشيال ميديا. اكتب الأداة عملت إيه، واتعلمت إيه، وإيه اللي النموذج غلط فيه.
-
-## اختبر نفسك
-
-**1.** النموذج بيقرر يستخدم أداة على أساس إيه؟
-
-- أ) كود الدالة كله
-- ب) اسم الدالة ووصفها وأنواع مدخلاتها
-- ج) اسم الملف اللي فيه الدالة
-
-<details>
-<summary>الإجابة</summary>
-
-ب) النموذج مش بيشوف الكود؛ بيقرأ الاسم والوصف وأنواع المدخلات (المفهوم 2).
-
-</details>
-
-**2.** رسالة استخدمت أداة واحدة، تاخد كام طلب للنموذج تقريبًا؟
-
-- أ) طلب واحد
-- ب) طلبين
-- ج) خمس طلبات
-
-<details>
-<summary>الإجابة</summary>
-
-ب) طلب يقرر يستدعي الأداة، وطلب يكتب الرد من نتيجتها (المفهوم 3).
-
-</details>
-
-**3.** سؤال «ما حكم قص الشعر قبل الطواف؟» استهلك كام توكن؟
-
-- أ) صفر، لأن الفلتر رد قبل النموذج
-- ب) حوالي ألفين، زي أي سؤال
-- ج) الضعف، لأنه سؤال شرعي
-
-<details>
-<summary>الإجابة</summary>
-
-أ) الـ `before_agent_callback` رد بالتحويل لـ«نسك» والنموذج ماتسألش (المفهوم 5).
-
-</details>
-
-**4.** ليه الأمر `uv run adk web` لوحده بيفتح صفحة فاضية في الـ codespace؟
-
-- أ) المفتاح غلط
-- ب) ADK بيمنع المصدر اللي تحويل المنافذ في GitHub بيبعت منه الطلبات
-- ج) المنفذ 8000 مقفول
-
-<details>
-<summary>الإجابة</summary>
-
-ب) علشان كده بنزود الخيار `--allow_origins http://localhost:8000` في أمر التشغيل.
-
-</details>
-
-**5.** حالة الميزانية ظهرت `XFAIL` في الاختبارات. ده معناه إيه؟
-
-- أ) الاختبار نفسه فيه غلطة
-- ب) ضعف معروف في النموذج بيتسجّل من غير ما يفشّل الاختبارات
-- ج) الأداة مش شغالة
-
-<details>
-<summary>الإجابة</summary>
-
-ب) النموذج المجاني بيحسب حد سعر الليلة غلط أحيانًا، وإحنا بنقيس ده وبنقوله بصراحة (المفهوم 6).
-
-</details>
-
 ## الخلاصة
 
 | المفهوم | المعادلة |
@@ -429,8 +197,6 @@ Discord، أو على السوشيال ميديا. اكتب الأداة عمل�
 | Callback | `Callback = a hook ADK calls at a fixed moment` |
 | Golden case | `Golden case = input + expected behaviour` |
 
-## الحلقة الجاية
-
-رحّال هيفتكر رحلتك: الميزانية واحتياجات المسافرين، حتى بعد ما تقفل وتفتح من جديد.
+**الخطوة الجاية:** [طبّق بنفسك](practice.md).
 
 </div>

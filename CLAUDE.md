@@ -56,7 +56,7 @@ can see it: explain any PoC finding in plain words, without slice numbers or int
 
 ## Language policy
 - Talk to Ayman in English. Code, identifiers, comments, docs, commit messages: English.
-- Lessons (`lessons/*.md`) and user-facing agent text: natural, concise Arabic (MSA, Egyptian dialect where it
+- Lessons (`lessons/`) and user-facing agent text: natural, concise Arabic (MSA, Egyptian dialect where it
   fits). No flowery phrasing, no literal translation.
 - Arabic Markdown must render right-to-left on GitHub: wrap Arabic in `<div dir="rtl">`, keep commands and code
   in code blocks, separate Arabic from numbers and Latin terms. Check the rendering (GitHub web editor Preview).
@@ -72,6 +72,10 @@ can see it: explain any PoC finding in plain words, without slice numbers or int
 - Code comment markers, sparingly (a few per file): `# 📘 Concept:` (two lines; the same sentence as the
   lesson's concept card) · `# 🔗 Docs:` (official ADK link; check it opens) · `# ⚠️ Pitfall:` (from the PoC
   LEARNING_LOG) · `# 🧪 Try it:` (exact message + what to look for in the Events tab).
+- Lesson layout: `lessons/setup.md` is shared by all episodes (never repeat setup in an episode). Each episode is a
+  folder `lessons/epNN/`: `README.md` (index: goal, concepts list, the 3 steps, the episode's check command, next
+  episode), `concepts.md` (concept cards with their try-it; the video follows this page), `practice.md` (3 levels +
+  quiz). Image paths from an episode folder start with `../../docs/assets/`.
 - Lessons start with the list of concepts they introduce, then teach each one **just in time**, as a card:
   formula → the lines in Rahhal → what to point at → one message to type → official docs link.
 - Each lesson ends with "طبّق بنفسك" in three levels: (1) run and try, no code; (2) 2–3 guided exercises with the
