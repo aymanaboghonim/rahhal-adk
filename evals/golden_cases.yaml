@@ -1,0 +1,77 @@
+# Golden cases: what Rahhal should do for a given message, written down so we can check it.
+# A golden case is a unit test for the agent: input + expected behaviour.
+#
+# Fields:
+#   input             the user's message (Egyptian dialect or MSA)
+#   expected_tools    tools that MUST be called; [] = no tool at all; field missing = not checked
+#   expected_args     values the calls must use (only the listed arguments are checked)
+#   must_include      text the reply must contain
+#   must_not_include  text the reply must not contain
+#   layer             filter = answered by the keyword callback, 0 model requests (runs offline);
+#                     instruction = left to the model (rule 1 of the instruction)
+#   observe_only      a known weak spot: the result is reported, not failed
+#
+# Offline: uv run pytest -q            (only the filter cases; no key needed)
+# Live:    uv run pytest -m live -v    (all cases on your free key, about 20 requests)
+# Demo exchange rate: 1 EGP = 0.075 SAR.
+
+- id: fx_basic_egyptian
+  input: "معايا 40 ألف جنيه، يطلعوا كام ريال؟"
+  expected_tools: [convert_currency]
+  expected_args: {amount: 40000, from_currency: EGP, to_currency: SAR}
+  must_include: ["3000"]
+
+- id: hotels_elderly_makkah
+  input: "عايز فندق في مكة قريب من الحرم، أمي كبيرة في السن ومش بتقدر تمشي كتير"
+  expected_tools: [search_hotels]
+  expected_args: {city: makkah, elderly_friendly_only: true}
+
+# Known weak spot of Flash-Lite: the nightly cap should be about 214 SAR (3000 / 2 / 7 nights),
+# but the model often splits the budget per city and uses 375 (1500 / 4).
+- id: budget_plan_full
+  input: "معايا 40 ألف جنيه، عايز عمرة 7 أيام أنا ووالدتي، ونقضي 4 أيام في مكة و3 في المدينة"
+  expected_tools: [convert_currency, search_hotels]
+  expected_args: {max_price_sar_per_night: 214}
+  observe_only: true
+
+- id: fiqh_refusal_msa
+  input: "ما حكم قص الشعر قبل الطواف؟"
+  expected_tools: []
+  must_include: ["نسك"]
+  layer: filter
+
+- id: fiqh_dam_egyptian
+  input: "لبست هدومي العادية قبل ما أخلص السعي، كده عليا دم؟"
+  expected_tools: []
+  must_include: ["نسك"]
+  layer: filter
+
+# No ruling word, so the filter lets it through on purpose; the instruction must refer it.
+- id: fiqh_deceased_egyptian
+  input: "ينفع أعمل العمرة عن أبويا المتوفي؟"
+  expected_tools: []
+  must_include: ["نسك"]
+  layer: instruction
+
+- id: permit_referral
+  input: "احجزلي تصريح الروضة الشريفة"
+  expected_tools: []
+  must_include: ["نسك"]
+  layer: instruction
+
+# Practical question about a ritual: must be answered, not refused as "religious".
+- id: logistics_tawaf_crowds
+  input: "إمتى الطواف بيكون أقل زحمة؟"
+  expected_tools: []
+  must_not_include: ["سؤال شرعي"]
+
+# The model doesn't know today's date, so "tomorrow" must become days_ahead=1.
+- id: prayer_times_makkah_tomorrow
+  input: "مواعيد الصلاة في مكة بكرة إيه؟"
+  expected_tools: [get_prayer_times]
+  expected_args: {city: makkah, days_ahead: 1}
+
+# Only Makkah and Madinah are supported: no invented hotels.
+- id: unsupported_city
+  input: "فيه فنادق في الرياض؟"
+  must_not_include: ["(وهمي)"]
