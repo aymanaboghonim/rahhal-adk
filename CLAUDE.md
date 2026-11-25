@@ -88,6 +88,8 @@ can see it: explain any PoC finding in plain words, without slice numbers or int
   `<div dir="rtl">` (they render as plain `[!NOTE]` text there): close the div, put the alert, reopen the div.
   For Arabic alert text, put the RTL div **inside** the alert (`> [!WARNING]` then `> <div dir="rtl">`); the title
   stays English.
+- `tests/test_lessons.py` enforces the rendering rules (closed RTL blocks, no alert inside them, a blank line after
+  `</details>`/`</div>`/`<img>`, existing image paths); it runs in CI.
 - Every message a learner should type goes in its own ```` ```text ```` block (one-click copy).
 - Bidi in Arabic prose: start and end each line with Arabic; never put punctuation, arrows, `÷` or a number
   directly between two Latin/code runs (`agent.py: 9`, `A، B`, `a ← b` scramble). Use an Arabic word between them,
