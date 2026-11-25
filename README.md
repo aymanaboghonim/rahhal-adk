@@ -48,7 +48,7 @@ always has the latest episode. Full plan: [docs/ROADMAP.md](docs/ROADMAP.md).
    `GOOGLE_API_KEY` (a Codespaces secret: it stays in your GitHub settings, never in the repo).
    The badge above also works; then add the key afterwards (see the `scripts/check.py` output).
 
-   <img src="docs/assets/codespaces-new-with-options.png" alt="Code, Codespaces tab, the … menu, New with options" width="320">
+   <img src="docs/assets/codespaces-new-with-options.png" alt="1: Code, 2: the … menu on the Codespaces tab, 3: New with options" width="360">
 2. Wait for the setup: it installs everything and runs the self-check.
 3. In the terminal:
    ```bash
