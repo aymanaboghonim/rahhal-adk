@@ -1,0 +1,44 @@
+/* Stylus user style for the ADK dev UI (adk web): Google's UI is left-to-right, so Arabic replies
+   look misaligned. This is cosmetic, in your browser only; it doesn't change the app.
+   Install the Stylus browser extension, create a new style, paste this file, and set "Applies to" =
+   "URLs matching the regexp":
+       ^(http://127\.0\.0\.1:8000|https://[^/]+-8000\.app\.github\.dev)/.*
+   (local adk web, and adk web forwarded from a GitHub Codespace). The plain "URL" option needs an
+   exact match, so it never applies.
+   Assumes the Arabic-only Rahhal agent: every chat message is laid out RTL. */
+
+/* Whole message RTL: list markers move to the right, text aligns right. */
+.message-text,
+app-markdown {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* The UI hard-codes padding-left on lists; mirror it for RTL. */
+.message-text :is(ul, ol),
+app-markdown :is(ul, ol) {
+  padding-left: 0 !important;
+  padding-right: 1.5em !important;
+}
+
+/* A line that starts with Latin text (e.g. an English sentence) still reads LTR. */
+app-markdown :is(p, li, h1, h2, h3, h4, td, th, blockquote) {
+  unicode-bidi: plaintext !important;
+}
+
+/* Side panel (Event / State / request JSON viewer): text values such as system_instruction.
+   ADK's viewer puts `segment-type-string` on the same span as `segment-value` (not a parent),
+   the text is in `.value-string`, and the row is a flex container, so the value must be
+   stretched to the full row before right alignment shows. A multi-line value is one element,
+   so the whole value is RTL; plaintext still lets each line pick its reading direction. */
+.segment-value.segment-type-string {
+  flex: 1 1 100% !important;
+  min-width: 0 !important;
+}
+.segment-value.segment-type-string .value-string {
+  display: block !important;
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext !important;
+  white-space: pre-wrap !important;
+}

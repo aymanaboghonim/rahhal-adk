@@ -1,7 +1,8 @@
 # Roadmap
 
-Rahhal (رحّال) is an Arabic Umrah trip-logistics agent, built step by step with Google's
-[Agent Development Kit (ADK)](https://google.github.io/adk-docs/) 2.14. The series follows **Masar (مسار)**,
+Rahhal ADK (رحّال) is an Arabic travel-logistics assistant, built step by step with Google's
+[Agent Development Kit (ADK)](https://google.github.io/adk-docs/) 2.14. Its first trip template is Umrah: real
+logistics (two cities, elderly travellers, prayer times, budget) with a clear boundary (no religious rulings). The series follows **Masar (مسار)**,
 Google's Arabic ADK learning program: **one episode per Masar session**, then one bonus episode after the season.
 
 **Zero cost, no credit card:** every episode needs only a GitHub account and a free Google AI Studio key from a
@@ -74,4 +75,6 @@ Reasoning: [ADR 0001](adr/0001-no-card-deployment-path.md).
    Not the main path.
 
 ## Follow-ups (not scheduled)
+- More trip templates (e.g. a city break) as community ideas, after the season. Each template brings its own
+  tools, data and scope rules; no template framework is built before a second template exists.
 - Add `MAD` (Moroccan dirham) to the demo exchange rates when the first Darija test cases arrive.

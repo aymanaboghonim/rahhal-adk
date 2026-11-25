@@ -1,7 +1,10 @@
 # CLAUDE.md: Rahhal (public teaching repo)
 
 ## What this repo is
-**Rahhal** (رحّال) is an Arabic Umrah trip-logistics agent built with Google ADK 2.14. It is taught in
+**Rahhal ADK** (رحّال; repo `rahhal-adk`) is an Arabic travel-logistics agent built with Google ADK 2.14; its
+first trip template is **Umrah** (logistics, never religious rulings). Public docs present it as a travel
+assistant with Umrah as the first template, not as a religious app, and as a learning project, not a travel
+product (other apps are called Rahhal). It is taught in
 episodes that follow Google's Arabic ADK program **Masar** (مسار): one episode per Masar session, recorded
 as "run and explain" videos (no live coding). The repo proves one claim, honestly:
 

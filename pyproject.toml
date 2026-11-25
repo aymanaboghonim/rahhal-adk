@@ -1,0 +1,29 @@
+[project]
+name = "rahhal"
+version = "0.1.0"
+description = "Rahhal ADK: an Arabic travel-logistics agent (first trip template: Umrah) built with Google ADK on a free key"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+dependencies = [
+    "google-adk==2.14.0",
+    "salat[full]==1.1.1",  # local prayer-time calculation (Umm al-Qura method)
+    "hijridate==2.3.0",    # Hijri date for the prayer-times result
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["rahhal*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+# Live tests call the model on your free key; they run only with `pytest -m live`.
+addopts = "-m 'not live'"
+markers = ["live: calls the Gemini API on your free key (about 2 requests per case)"]

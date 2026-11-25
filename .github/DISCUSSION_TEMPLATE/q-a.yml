@@ -1,0 +1,40 @@
+title: "[ep01] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for asking! Please run `uv run python scripts/check.py <episode>` first and include its output.
+        **Never paste your API key** (or a `.env` file) here.
+  - type: dropdown
+    id: episode
+    attributes:
+      label: Episode
+      options: ["ep01-tools", "ep02-memory", "ep03-toolbox", "ep04-a2a", "ep05-workflows", "bonus-evals", "other"]
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Where are you running it?
+      options: ["GitHub Codespaces", "Linux", "WSL", "Windows", "macOS"]
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command you ran
+      placeholder: uv run adk web
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Error output (and the check.py output)
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?

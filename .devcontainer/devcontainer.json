@@ -1,0 +1,25 @@
+// GitHub Codespaces setup for Rahhal. Opening the repo's codespace gives the default 2-core machine.
+// A codespace is a cloud development environment, not a production server.
+{
+  "name": "Rahhal ADK (google-adk 2.14, free tier)",
+  "image": "mcr.microsoft.com/devcontainers/python:3.14-bookworm",
+  // Use the Gemini API with an AI Studio key, not Vertex AI.
+  "containerEnv": { "GOOGLE_GENAI_USE_ENTERPRISE": "0" },
+  // Shown under "New with options" when you create the codespace. The key is never committed.
+  "secrets": {
+    "GOOGLE_API_KEY": {
+      "description": "Gemini API key from a Google AI Studio project WITHOUT billing (free tier).",
+      "documentationUrl": "https://aistudio.google.com/apikey"
+    }
+  },
+  // Codespaces secrets are not available while the codespace is being built, so the self-check
+  // only reports here and never fails the setup. Run it again any time.
+  "postCreateCommand": "pip install --user uv==0.13.5 && uv sync && (uv run python scripts/check.py ep01 || true)",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": { "label": "adk web (dev UI)", "onAutoForward": "notify" }
+  },
+  "customizations": {
+    "vscode": { "extensions": ["ms-python.python"] }
+  }
+}

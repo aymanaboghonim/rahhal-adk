@@ -1,0 +1,46 @@
+title: "[dialect] "
+labels: ["dialect"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help Rahhal understand more Arabic dialects. Share a message a real traveller would type, in your
+        own dialect. Phrases are reviewed by native speakers before they become test cases.
+        **No personal data:** no names, phone numbers, or real bookings.
+  - type: input
+    id: dialect
+    attributes:
+      label: Dialect and country
+      placeholder: "Moroccan Darija (Morocco)"
+    validations:
+      required: true
+  - type: textarea
+    id: phrase
+    attributes:
+      label: The phrase, in Arabic script
+    validations:
+      required: true
+  - type: input
+    id: arabizi
+    attributes:
+      label: Optional, the same phrase in Latin script (Arabizi)
+  - type: textarea
+    id: meaning
+    attributes:
+      label: What does the traveller want? (in English or Arabic)
+      placeholder: "Convert 5000 dirhams to Saudi riyals"
+    validations:
+      required: true
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Which tool should Rahhal use?
+      options:
+        - "currency conversion"
+        - "hotel search"
+        - "prayer times"
+        - "none: it's a religious ruling, refer to Nusuk"
+        - "none: general logistics question"
+        - "not sure"
+    validations:
+      required: true

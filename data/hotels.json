@@ -1,0 +1,222 @@
+[
+  {
+    "id": "MAK-001",
+    "name_ar": "فندق السكينة سويتس (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 2150,
+    "stars": 3,
+    "price_sar_per_night": 160,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-002",
+    "name_ar": "فندق الأمان إن (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 1600,
+    "stars": 4,
+    "price_sar_per_night": 400,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-003",
+    "name_ar": "فندق الإيمان ريزيدنس (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 1850,
+    "stars": 4,
+    "price_sar_per_night": 360,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-004",
+    "name_ar": "فندق السكينة بلازا (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 1750,
+    "stars": 5,
+    "price_sar_per_night": 810,
+    "has_shuttle": false,
+    "elderly_friendly": false
+  },
+  {
+    "id": "MAK-005",
+    "name_ar": "فندق البركة إن (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 1250,
+    "stars": 4,
+    "price_sar_per_night": 460,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-006",
+    "name_ar": "فندق النور جراند (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 1700,
+    "stars": 4,
+    "price_sar_per_night": 390,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-007",
+    "name_ar": "فندق الهدى جراند (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 1500,
+    "stars": 3,
+    "price_sar_per_night": 220,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-008",
+    "name_ar": "فندق الرحمة بلازا (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 1150,
+    "stars": 5,
+    "price_sar_per_night": 1030,
+    "has_shuttle": false,
+    "elderly_friendly": false
+  },
+  {
+    "id": "MAK-009",
+    "name_ar": "فندق النور تاور (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 2050,
+    "stars": 4,
+    "price_sar_per_night": 330,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-010",
+    "name_ar": "فندق الهدى ريزيدنس (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 600,
+    "stars": 4,
+    "price_sar_per_night": 570,
+    "has_shuttle": false,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-011",
+    "name_ar": "فندق الصفا سويتس (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 1050,
+    "stars": 4,
+    "price_sar_per_night": 500,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-012",
+    "name_ar": "فندق الإيمان تاور (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 800,
+    "stars": 3,
+    "price_sar_per_night": 280,
+    "has_shuttle": false,
+    "elderly_friendly": false
+  },
+  {
+    "id": "MAK-013",
+    "name_ar": "فندق الرحمة إن (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 400,
+    "stars": 4,
+    "price_sar_per_night": 600,
+    "has_shuttle": false,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAK-014",
+    "name_ar": "فندق الضيافة ريزيدنس (وهمي)",
+    "city": "makkah",
+    "distance_to_haram_m": 1150,
+    "stars": 4,
+    "price_sar_per_night": 480,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAD-015",
+    "name_ar": "فندق الرحمة ريزيدنس (وهمي)",
+    "city": "madinah",
+    "distance_to_haram_m": 850,
+    "stars": 4,
+    "price_sar_per_night": 470,
+    "has_shuttle": false,
+    "elderly_friendly": false
+  },
+  {
+    "id": "MAD-016",
+    "name_ar": "فندق الأمان ريزيدنس (وهمي)",
+    "city": "madinah",
+    "distance_to_haram_m": 1400,
+    "stars": 5,
+    "price_sar_per_night": 740,
+    "has_shuttle": true,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAD-017",
+    "name_ar": "فندق السكينة إن (وهمي)",
+    "city": "madinah",
+    "distance_to_haram_m": 500,
+    "stars": 3,
+    "price_sar_per_night": 290,
+    "has_shuttle": false,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAD-018",
+    "name_ar": "فندق البركة بلازا (وهمي)",
+    "city": "madinah",
+    "distance_to_haram_m": 750,
+    "stars": 3,
+    "price_sar_per_night": 260,
+    "has_shuttle": false,
+    "elderly_friendly": false
+  },
+  {
+    "id": "MAD-019",
+    "name_ar": "فندق الإيمان جراند (وهمي)",
+    "city": "madinah",
+    "distance_to_haram_m": 450,
+    "stars": 4,
+    "price_sar_per_night": 570,
+    "has_shuttle": false,
+    "elderly_friendly": true
+  },
+  {
+    "id": "MAD-020",
+    "name_ar": "فندق الضيافة إن (وهمي)",
+    "city": "madinah",
+    "distance_to_haram_m": 1150,
+    "stars": 4,
+    "price_sar_per_night": 400,
+    "has_shuttle": false,
+    "elderly_friendly": false
+  },
+  {
+    "id": "MAD-021",
+    "name_ar": "فندق النور ريزيدنس (وهمي)",
+    "city": "madinah",
+    "distance_to_haram_m": 850,
+    "stars": 4,
+    "price_sar_per_night": 470,
+    "has_shuttle": false,
+    "elderly_friendly": false
+  },
+  {
+    "id": "MAD-022",
+    "name_ar": "فندق الأمان بلازا (وهمي)",
+    "city": "madinah",
+    "distance_to_haram_m": 950,
+    "stars": 3,
+    "price_sar_per_night": 240,
+    "has_shuttle": false,
+    "elderly_friendly": false
+  }
+]
