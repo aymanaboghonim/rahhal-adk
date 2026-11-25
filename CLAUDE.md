@@ -82,6 +82,10 @@ can see it: explain any PoC finding in plain words, without slice numbers or int
   For Arabic alert text, put the RTL div **inside** the alert (`> [!WARNING]` then `> <div dir="rtl">`); the title
   stays English.
 - Every message a learner should type goes in its own ```` ```text ```` block (one-click copy).
+- Bidi in Arabic prose: start and end each line with Arabic; never put punctuation, arrows, `÷` or a number
+  directly between two Latin/code runs (`agent.py: 9`, `A، B`, `a ← b` scramble). Use an Arabic word between them,
+  a table, or a numbered list instead.
+- Link only public official resources (codelabs, ADK docs). Don't link unlisted recordings or sign-in pages.
   Mermaid diagrams also go outside the RTL div; tables, lists and code spans work inside it (GitHub Preview test,
   2026-11-25).
 - Concept cards: the formula and ADK terms stay in English (`Tool = Python function + docstring`), as in the code,
