@@ -73,8 +73,11 @@ can see it: explain any PoC finding in plain words, without slice numbers or int
   lesson's concept card) · `# 🔗 Docs:` (official ADK link; check it opens) · `# ⚠️ Pitfall:` (from the PoC
   LEARNING_LOG) · `# 🧪 Try it:` (exact message + what to look for in the Events tab).
 - Lessons start with the list of concepts they introduce, then teach each one **just in time**, as a card:
-  formula → the lines in Rahhal → what to point at → one message to type. Each lesson ends with 1–2 challenges that
-  need no coding, and a recap box of the formulas.
+  formula → the lines in Rahhal → what to point at → one message to type → official docs link.
+- Each lesson ends with "طبّق بنفسك" in three levels: (1) run and try, no code; (2) 2–3 guided exercises with the
+  solution in a collapsed `<details>` block, **each solution tested against the real model before publishing**;
+  (3) an open project to share (Show and tell discussions, Masar Discord, social media). Then a 5-question quiz with
+  collapsed answers, then the recap box of formulas.
 - Every public doc is self-descriptive: a newcomer understands it without asking what a term means.
 - Recording: explain quotas from the official docs; never show personal billing or usage pages on screen.
 - GitHub alerts (`[!NOTE]`, `[!WARNING]`, `[!TIP]`) sparingly, never stacked, and **never inside**
