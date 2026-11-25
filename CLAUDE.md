@@ -79,6 +79,9 @@ can see it: explain any PoC finding in plain words, without slice numbers or int
 - Recording: explain quotas from the official docs; never show personal billing or usage pages on screen.
 - GitHub alerts (`[!NOTE]`, `[!WARNING]`, `[!TIP]`) sparingly, never stacked, and **never inside**
   `<div dir="rtl">` (they render as plain `[!NOTE]` text there): close the div, put the alert, reopen the div.
+  For Arabic alert text, put the RTL div **inside** the alert (`> [!WARNING]` then `> <div dir="rtl">`); the title
+  stays English.
+- Every message a learner should type goes in its own ```` ```text ```` block (one-click copy).
   Mermaid diagrams also go outside the RTL div; tables, lists and code spans work inside it (GitHub Preview test,
   2026-11-25).
 - Concept cards: the formula and ADK terms stay in English (`Tool = Python function + docstring`), as in the code,
