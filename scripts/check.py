@@ -198,7 +198,12 @@ def main() -> int:
             ok, message = False, f"check crashed: {type(error).__name__}: {error}"
         failed += not ok
         print(f"{'✅' if ok else '❌'} {name}: {message}")
-    print("\nAll good. Next: uv run adk web" if not failed else f"\n{failed} check(s) need a fix (see above).")
+    if failed:
+        print(f"\n{failed} check(s) need a fix (see above).")
+    elif IN_CODESPACE:  # GitHub's port forwarding sends Origin http://localhost:8000; ADK must allow it
+        print("\nAll good. Next: uv run adk web --allow_origins http://localhost:8000")
+    else:
+        print("\nAll good. Next: uv run adk web")
     return 1 if failed else 0
 
 

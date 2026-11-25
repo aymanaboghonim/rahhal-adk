@@ -46,14 +46,24 @@ always has the latest episode. Full plan: [docs/ROADMAP.md](docs/ROADMAP.md).
 ### 2a. Run it in GitHub Codespaces (recommended: nothing to install)
 1. On this repo: **Code → Codespaces → … → New with options**. At the bottom, paste your key into
    `GOOGLE_API_KEY` (a Codespaces secret: it stays in your GitHub settings, never in the repo).
-   The badge above also works; then add the key afterwards (see `scripts/check.py` output).
+   The badge above also works; then add the key afterwards (see the `scripts/check.py` output).
+
+   <img src="docs/assets/codespaces-new-with-options.png" alt="Code, Codespaces tab, the … menu, New with options" width="320">
 2. Wait for the setup: it installs everything and runs the self-check.
 3. In the terminal:
    ```bash
    uv run python scripts/check.py ep01
-   uv run adk web
+   uv run adk web --allow_origins http://localhost:8000
    ```
 4. Open port **8000** from the **Ports** tab.
+
+> [!WARNING]
+> In a codespace, plain `uv run adk web` shows a blank page (`403 Forbidden` in the terminal). GitHub's port
+> forwarding sends your browser's requests with the origin `http://localhost:8000`, and ADK blocks origins it can't
+> match, to protect you from malicious websites. `--allow_origins http://localhost:8000` allows exactly that one.
+
+The first `adk` command asks `Enable telemetry? [Y/n]`. Pressing Enter means **yes**; type `n` if you don't want
+to share anonymous usage data with Google (`uv run adk telemetry disable` changes it later).
 
 > [!NOTE]
 > Personal GitHub Free accounts include 120 core-hours and 15 GB of Codespaces storage per month (about 60 hours
@@ -75,8 +85,11 @@ always has the latest episode. Full plan: [docs/ROADMAP.md](docs/ROADMAP.md).
    ```
 2. Open <http://127.0.0.1:8000> (use `127.0.0.1`, not `localhost`).
 
-Arabic replies look misaligned in ADK's web UI (it is left-to-right). Optional fix in your browser:
-[docs/assets/adk-web-rtl.user.css](docs/assets/adk-web-rtl.user.css).
+**Arabic in `adk web` (optional):** ADK's web UI is left-to-right, so Arabic replies look misaligned, and ADK has no
+option to change its style. The fix lives in your browser: install the [Stylus](https://github.com/openstyles/stylus)
+extension (Chrome, Edge, Firefox), create a new style, paste
+[docs/assets/adk-web-rtl.user.css](docs/assets/adk-web-rtl.user.css), and set "Applies to" as the comment at the top of
+that file says. It works for local `adk web` and for the Codespaces URL.
 
 ## Free, and on your machine
 

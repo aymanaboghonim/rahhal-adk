@@ -3,8 +3,12 @@
 {
   "name": "Rahhal ADK (google-adk 2.14, free tier)",
   "image": "mcr.microsoft.com/devcontainers/python:3.14-bookworm",
-  // Use the Gemini API with an AI Studio key, not Vertex AI.
-  "containerEnv": { "GOOGLE_GENAI_USE_ENTERPRISE": "0" },
+  "containerEnv": {
+    // Use the Gemini API with an AI Studio key, not Vertex AI.
+    "GOOGLE_GENAI_USE_ENTERPRISE": "0",
+    // uv's cache and /workspaces are on different disks here: copy instead of hardlink (no warning).
+    "UV_LINK_MODE": "copy"
+  },
   // Shown under "New with options" when you create the codespace. The key is never committed.
   "secrets": {
     "GOOGLE_API_KEY": {
@@ -20,6 +24,10 @@
     "8000": { "label": "adk web (dev UI)", "onAutoForward": "notify" }
   },
   "customizations": {
-    "vscode": { "extensions": ["ms-python.python"] }
+    "vscode": {
+      "extensions": ["ms-python.python"],
+      // The editor uses the project's .venv (imports resolve; new terminals activate it).
+      "settings": { "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python" }
+    }
   }
 }
