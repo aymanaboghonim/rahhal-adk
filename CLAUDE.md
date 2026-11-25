@@ -77,8 +77,13 @@ can see it: explain any PoC finding in plain words, without slice numbers or int
   need no coding, and a recap box of the formulas.
 - Every public doc is self-descriptive: a newcomer understands it without asking what a term means.
 - Recording: explain quotas from the official docs; never show personal billing or usage pages on screen.
-- GitHub alerts (`[!NOTE]`, `[!WARNING]`, `[!TIP]`) sparingly, never stacked; placement inside or between RTL
-  blocks follows the RTL Preview test result.
+- GitHub alerts (`[!NOTE]`, `[!WARNING]`, `[!TIP]`) sparingly, never stacked, and **never inside**
+  `<div dir="rtl">` (they render as plain `[!NOTE]` text there): close the div, put the alert, reopen the div.
+  Mermaid diagrams also go outside the RTL div; tables, lists and code spans work inside it (GitHub Preview test,
+  2026-11-25).
+- Concept cards: the formula and ADK terms stay in English (`Tool = Python function + docstring`), as in the code,
+  the UI and the docs; the explanation is Arabic in our own words, with an Arabic gloss on first use (الأداة (Tool));
+  each card links the official ADK docs page (link, don't copy).
 
 ## Episode workflow
 1. After the Masar session, Ayman shares the codelab → write `docs/plans/epNN.md` → **Ayman approves**.
