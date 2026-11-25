@@ -33,7 +33,7 @@ pitfalls below are explained in each lesson.
 
 | Episode | Pitfalls carried into the lesson |
 |---------|----------------------------------|
-| ep01 | the official codelabs use Vertex AI with billing (we use an AI Studio key); a key exported in the shell silently beats `.env`; free-tier 429 errors need retries; the model doesn't know today's date; a religious-ruling filter must not refuse practical questions |
+| ep01 | the official codelabs use Vertex AI with billing (we use an AI Studio key); in a codespace `adk web` needs `--allow_origins http://localhost:8000`; a key exported in the shell silently beats `.env`; free-tier 429 errors need retries; the model doesn't know today's date; a religious-ruling filter must not refuse practical questions |
 | ep02 | `{key}` in the instruction is a state placeholder; state is saved only when you assign the value back; say *who* has limited mobility; use a fresh user id for clean tests |
 | ep03 | in `tools.yaml`, `required: false` (not `default: null`) makes a parameter optional; results change shape (list, object, null); restrict allowed hosts |
 | ep04 | `adk deploy docker` reads only the agent folder's `.env` and defaults to Python 3.11; more after the trial run |
