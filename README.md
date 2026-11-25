@@ -36,9 +36,11 @@ always has the latest episode. Full plan: [docs/ROADMAP.md](docs/ROADMAP.md).
 ## Start here
 
 ### 1. Get a free Gemini API key (no billing)
-1. Open [Google AI Studio](https://aistudio.google.com/apikey) and create a **new project without billing**.
-2. Create an API key in that project.
-3. On the project's rate-limit page, check that it shows the **free tier**.
+1. Open [Google AI Studio → Projects](https://aistudio.google.com/projects) and click **Create a new project**.
+2. On **API Keys**, click **Create API key**, name it, and choose the new project.
+3. Check that **Billing Tier** says **Free tier**. Don't click **Set up billing**. Copy the key.
+
+Step-by-step screenshots (Arabic): [lessons/ep01.md](lessons/ep01.md#اللي-هتحتاجه).
 
 > [!WARNING]
 > A project with billing enabled is on a paid tier and **is charged**. Never link billing to this project.
