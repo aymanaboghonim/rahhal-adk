@@ -23,7 +23,7 @@ with almost everything **running on your machine** or in a free GitHub Codespace
 
 | # | Episode | Masar session | Lesson | Tag | Video |
 |---|---------|---------------|--------|-----|-------|
-| 1 | Your first ADK agent with tools, on a free key | Foundation + 1. Empowering AI Agents with Tools | coming soon | `ep01-tools` | coming soon |
+| 1 | Your first ADK agent with tools, on a free key | Foundation + 1. Empowering AI Agents with Tools | [lessons/ep01](lessons/ep01/) | `ep01-tools` | coming soon |
 | 2 | Stateful ADK agents: Rahhal remembers your trip | 2. Stateful & Personalized Agents (Memory) | | `ep02-memory` | |
 | 3 | ADK agents on a database with MCP Toolbox | 3. Multi-Agent Apps with MCP Toolbox for Databases | | `ep03-toolbox` | |
 | 4 | Agent-to-agent with ADK: a currency agent over MCP & A2A | 4. Agent Interoperability with MCP & A2A | | `ep04-a2a` | |
@@ -36,9 +36,11 @@ always has the latest episode. Full plan: [docs/ROADMAP.md](docs/ROADMAP.md).
 ## Start here
 
 ### 1. Get a free Gemini API key (no billing)
-1. Open [Google AI Studio](https://aistudio.google.com/apikey) and create a **new project without billing**.
-2. Create an API key in that project.
-3. On the project's rate-limit page, check that it shows the **free tier**.
+1. Open [Google AI Studio → Projects](https://aistudio.google.com/projects) and click **Create a new project**.
+2. On **API Keys**, click **Create API key**, name it, and choose the new project.
+3. Check that **Billing Tier** says **Free tier**. Don't click **Set up billing**. Copy the key.
+
+Step-by-step screenshots (Arabic): [lessons/setup.md](lessons/setup.md).
 
 > [!WARNING]
 > A project with billing enabled is on a paid tier and **is charged**. Never link billing to this project.
