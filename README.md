@@ -23,7 +23,7 @@ with almost everything **running on your machine** or in a free GitHub Codespace
 
 | # | Episode | Masar session | Lesson | Tag | Video |
 |---|---------|---------------|--------|-----|-------|
-| 1 | Your first ADK agent with tools, on a free key | Foundation + 1. Empowering AI Agents with Tools | [lessons/ep01](lessons/ep01/) | `ep01-tools` | coming soon |
+| 1 | Your first ADK agent with tools, on a free key | Foundation + 1. Empowering AI Agents with Tools | [lessons/ep01](lessons/ep01/) | [`ep01-tools`](https://github.com/aymanaboghonim/rahhal-adk/releases/tag/ep01-tools) | coming soon |
 | 2 | Stateful ADK agents: Rahhal remembers your trip | 2. Stateful & Personalized Agents (Memory) | | `ep02-memory` | |
 | 3 | ADK agents on a database with MCP Toolbox | 3. Multi-Agent Apps with MCP Toolbox for Databases | | `ep03-toolbox` | |
 | 4 | Agent-to-agent with ADK: a currency agent over MCP & A2A | 4. Agent Interoperability with MCP & A2A | | `ep04-a2a` | |
