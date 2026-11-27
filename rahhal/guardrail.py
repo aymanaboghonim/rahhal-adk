@@ -1,4 +1,4 @@
-"""Fiqh guardrail: Rahhal never gives religious rulings (فتوى); it refers them to Nusuk (نسك).
+"""Fiqh guardrail: Rahhal never gives religious rulings (فتوى); it refers them to qualified scholars (أهل العلم).
 
 Two layers:
 1. This file: a keyword filter for clear *ruling* questions. It runs before the model as a
@@ -18,7 +18,7 @@ from google.genai import types
 
 REFERRAL_MSG = (
     "هذا سؤال شرعي خارج اختصاصي؛ أنا أساعد في الجانب اللوجستي فقط (الميزانية والسكن وترتيب الأيام).\n"
-    "للفتوى، يُرجى الرجوع إلى تطبيق «نسك» الرسمي أو إلى أهل العلم."
+    "للأحكام الشرعية، يُرجى سؤال أهل العلم."
 )
 
 _DIACRITICS = re.compile(r"[ً-ْٰـ]")  # tashkeel, superscript alef, tatweel

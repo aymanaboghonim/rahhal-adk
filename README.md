@@ -112,8 +112,8 @@ that file says. It works for local `adk web` and for the Codespaces URL.
 
 ## What Rahhal won't do
 Rahhal handles trip logistics only: budget, currency, hotels, prayer times, planning the days. It never books
-anything. In the Umrah template it **never gives religious rulings (فتوى)**: it refers those questions, and official
-bookings and permits, to **Nusuk (نسك)**, the official platform, or to scholars. Hotels and exchange rates are
+anything. In the Umrah template it **never gives religious rulings (فتوى)**: it refers those questions to qualified scholars (أهل العلم), and official
+bookings and permits to **Nusuk (نسك)**, the official platform. Hotels and exchange rates are
 fictional demo data.
 
 ## Questions?
