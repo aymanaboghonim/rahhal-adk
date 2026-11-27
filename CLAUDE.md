@@ -44,7 +44,7 @@ can see it: explain any PoC finding in plain words, without slice numbers or int
   paid-only model. Every model call has retries (429/503) and a request timeout (30 s).
 - **Never enable billing** anywhere in the default path. Paid options (Cloud Run) are optional and labelled
   "requires a billing account; card required".
-- **No religious rulings (فتوى).** Logistics only; fiqh questions, permits and official bookings are referred to
+- **No religious rulings (فتوى).** Logistics only; fiqh questions are referred to scholars (أهل العلم); permits and official bookings to
   Nusuk (نسك). Tested in golden cases from ep01.
 - **Synthetic data only** (fixed-seed generator). Free-tier prompts may be used by Google.
 - **Secrets:** one `.env` at the **repo root** (ADK walks up from the agent folder to the first `.env`) or the

@@ -56,6 +56,6 @@ def _ctx(text):
 
 def test_callback_returns_fixed_referral_or_none():
     reply = fiqh_guardrail(_ctx("ما حكم قص الشعر قبل الطواف؟"))
-    assert reply.parts[0].text == REFERRAL_MSG and "نسك" in REFERRAL_MSG
+    assert reply.parts[0].text == REFERRAL_MSG and "أهل العلم" in REFERRAL_MSG
     assert fiqh_guardrail(_ctx("عايز فندق قريب من المسجد الحرام")) is None
     assert fiqh_guardrail(SimpleNamespace(user_content=None)) is None
